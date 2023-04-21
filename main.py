@@ -1,5 +1,5 @@
 user_num = input('Введите число для поиска: ')
-input_str = '2 3 4 6 1 5 9 8 7 22 45 98 223 556 4 7 8'
+input_str = '2 3 4 6 1 5 99 8 7 22 45 98 223 556 4 7 8'
 
 
 def binary_search(array, element, left, right):
@@ -52,7 +52,10 @@ def data_handler(user_number, data_str):
         qsort(array, 0, len(array)-1)
         return binary_search(array, user_number, 0, len(array) - 1)
     except ValueError:
-        return f'"{user_number}" не является числом.'
+        if type(user_number) is int:
+            return 'Возникла проблемма при обработке массива'
+        else:
+            return f'"{user_number}" не является числом.'
 
 
 print(data_handler(user_num, input_str))
